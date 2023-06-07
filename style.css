@@ -57,4 +57,17 @@ body{
     margin: 40px;
     display: none;
     justify-content: center;
+    align-items: center;
+}
+#reset_button{
+    outline: none;
+    margin: 10px;
+    padding: 15px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: black;
+    color: orange;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 20px;
 }

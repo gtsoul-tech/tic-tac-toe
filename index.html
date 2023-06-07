@@ -9,7 +9,11 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div id="players"></div>
+    
+    <div id="players">
+        <div class="playersText"></div>
+        <button id="reset_button" type="reset" onclick="reset()" >Reset</button>
+    </div>
     <form action="" method="post" id="start">
         <label for="player1">Player X</label>
         <input type="text" id="player1" name="player1" placeholder="Player1" required>
