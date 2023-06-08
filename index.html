@@ -12,14 +12,18 @@
     
     <div id="players">
         <div class="playersText"></div>
-        <button id="reset_button" type="reset" onclick="reset()" >Reset</button>
+        <button id="reset_button" type="reset" onclick="displayController.reset()" >Reset</button>
     </div>
     <form action="" method="post" id="start">
-        <label for="player1">Player X</label>
-        <input type="text" id="player1" name="player1" placeholder="Player1" required>
-        <input type="submit" id="start_button" value="Submit">
-        <label for="player2">Player O</label>
-        <input type="text" id="player2" name="player2" placeholder="Player2" required>
+        <h1>Tic-Tac-Toe</h1>
+        <label for="player1">Player X
+            <input type="text" id="player1" name="player1" placeholder="Player1" required>
+        </label>
+        <label for="player2">Player O
+            <input type="text" id="player2" name="player2" placeholder="Player2" required>
+        </label>
+        
+        <input type="submit" id="start_button" value="Play">
     </form>
     <div class="gameboard">
         <div class="square" id="square1"></div>

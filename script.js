@@ -27,23 +27,32 @@ const displayController = (()=> {
 
             let result =check();
             if(result === 1){
-                console.log(this.player);
                 const players = document.getElementById("players");
                 const playersText= document.querySelector(".playersText");
-                playersText.textContent = this.player.name + " won!!!";
-                players.style.display = "flex";
+                if( !playersText.textContent.includes("won")){
+                    playersText.textContent = this.player.name + `(${this.player.symbol})` + " won!!!";
+                    players.style.display = "flex";
+                    if(this.player === player1){
+                        this.player=player2;
+                    }else if(this.player === player2){
+                        this.player=player1;
+                    }
+                    render();
+                }
 
-                const startGame = document.getElementById("start");
-                startGame.style.display = "block";
+                //const startGame = document.getElementById("start");
+                //startGame.style.display = "block";
                 //reset
+            }else{
+                if(this.player === player1){
+                    this.player=player2;
+                }else if(this.player === player2){
+                    this.player=player1;
+                }
+                render();
             }
             //based on the result show the winner for 5 sec and then restart button
-            if(this.player === player1){
-                this.player=player2;
-            }else if(this.player === player2){
-                this.player=player1;
-            }
-            render();
+            
         }
     };
     //1 win //2 tie
@@ -71,15 +80,26 @@ const displayController = (()=> {
         }
         return "Continue";
     };
-
+    const reset = ()=>{
+        const players = document.getElementById("players");
+        players.style.display = "none";
+        
+        const startGame = document.getElementById("start");
+        startGame.style.display = "flex";
+        const squares = document.querySelectorAll(".square");
+        squares.forEach((square,index)=> {
+            square.style.display="none";
+            gameboard.board[index]="";
+            square.textContent = gameboard.board[index];
+        });
+    }
     const start = (e) =>{
         e.preventDefault();
-        //pare to form eksafaniseto kai reset
-        
         const name1 =document.getElementById("player1");
         const name2 =document.getElementById("player2");
         const players = document.getElementById("players");
         const playersText= document.querySelector(".playersText");
+
         playersText.textContent = `Player X (${name1.value}) VS Player O (${name2.value}) `;
         players.style.display = "flex";
         
@@ -91,6 +111,7 @@ const displayController = (()=> {
         startGame.reset();
         const squares = document.querySelectorAll(".square");
         squares.forEach((square,index)=> {
+            square.style.display="flex";
             square.addEventListener("click", () => {
                 turn(index);
             });
@@ -98,7 +119,7 @@ const displayController = (()=> {
         });
     };
 
-    return { start,turn };
+    return { start,turn,reset };
 })();
 //displayController.start();
 

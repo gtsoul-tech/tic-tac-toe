@@ -10,16 +10,18 @@ body{
     display: grid;
     grid-template-columns: repeat(3,10rem);
     grid-template-rows: repeat(3,10rem);
-    
+    gap: 10px;
+    border-radius: 20px;
     text-align: center;
     justify-content: center;
 }
 .square{
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     font-size: 4rem;
     text-shadow: 1px 1px 2px grey;
+    box-shadow: 5px 5px 15px black;
     color: black;
     border: 1px solid rgb(0, 0, 0);
 }
@@ -27,6 +29,7 @@ body{
 #start{
     padding: 30px;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     gap: 10px;
