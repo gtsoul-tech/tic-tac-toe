@@ -1,5 +1,5 @@
 const gameboard = (() => {
-    let board = ["","X","","X","O","","","",""];
+    let board = ["","","","","","","","",""];
     let numberBoard = [];
     const fillNumberBoard = ()=>{
         board.forEach((element,index)=>{
@@ -71,12 +71,13 @@ const displayController = (()=> {
                 if(this.player === player1){
                     this.player=player2;
                     if(this.player.name.includes("Computer")){
-                        //turn(minimax(gameboard.board,this.player.symbol,player1.symbol).index);
+                        
+                        turn(minimax(gameboard.fillNumberBoard(),this.player.symbol,player1.symbol).index);
                     }
                 }else if(this.player === player2){
                     this.player=player1;
                     if(this.player.name.includes("Computer")){
-                        //turn(minimax(gameboard.board,this.player.symbol,player2.symbol).index);
+                        turn(minimax(gameboard.fillNumberBoard(),this.player.symbol,player2.symbol).index);
                     }
                 }
 
@@ -173,7 +174,7 @@ const displayController = (()=> {
 
 //displayController.start();
 function emptyIndex(board){
-  return  board.filter(index => index === "");
+  return  board.filter(index => !isNaN(index));
 };
 function winning(board, player){
  if (
