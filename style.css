@@ -1,9 +1,12 @@
+:root {
+    --main-bg-color: #36454f;
+}
 body{
     display: grid;
     grid-template-rows: 1fr 4fr;
     justify-content: center;
     align-items: center;
-    background-color: orange;
+    background-color: var(--main-bg-color);
 }
 .gameboard{
     
@@ -36,7 +39,7 @@ body{
 }
 #start input[type="text"]{
     outline: none;
-    background-color: orange;
+    background-color: var(--main-bg-color);
     width: 200px;
     border: 1px solid black;
     border-radius: 20px;
@@ -49,10 +52,14 @@ body{
     padding-left: 40px;
     padding-right: 40px;
     background-color: black;
-    color: orange;
+    color: var(--main-bg-color);
     font-size: 1rem;
     font-weight: bold;
     border-radius: 20px;
+}
+#start input[type="radio"]{
+    accent-color:var(--main-bg-color);
+    background-color: var(--main-bg-color);
 }
 
 #players{
@@ -69,7 +76,7 @@ body{
     padding-left: 40px;
     padding-right: 40px;
     background-color: black;
-    color: orange;
+    color: var(--main-bg-color);
     font-size: 1rem;
     font-weight: bold;
     border-radius: 20px;
